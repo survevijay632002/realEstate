@@ -13,18 +13,20 @@ import bodyParser from "body-parser";
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
-    credentials: true,
-    methods: ["POST", "GET"],
+    origin: "http://localhost:5174", // allow the React frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // specify the allowed HTTP methods
+    credentials: true, // if you need to send cookies or authorization headers
   },
 });
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true,
+    origin: "http://localhost:5174", // allow the React frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // specify the allowed HTTP methods
+    credentials: true, // if you need to send cookies or authorization headers
   })
 );
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());

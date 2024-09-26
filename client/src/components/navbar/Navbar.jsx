@@ -7,7 +7,7 @@ function Navbar() {
   const { currentUser } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
-  const user = true;
+  const user = currentUser;
   return (
     <nav>
       <div className="left">
@@ -35,9 +35,12 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="/">Sign in</a>
-            <Link to="/register" className="register">
-              Sign up
+            <Link to="/register" className="  bg-blue-600 p-33">
+              singn up
+            </Link>
+
+            <Link to="/login" className="  bg-blue-600 p-33">
+              login
             </Link>
           </>
         )}
